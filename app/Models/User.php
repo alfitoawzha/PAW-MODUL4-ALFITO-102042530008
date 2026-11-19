@@ -22,10 +22,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        // TODO 1: Tambahkan kolom 'role' pada properti $fillable
+        'role',
     ];
 
-    // TODO 1: Tambahkan method relasi peminjaman() (One-to-Many ke model Peminjaman)
+    /**
+     * Relasi One-to-Many: satu User dapat memiliki banyak catatan Peminjaman.
+     */
+    public function peminjaman()
+    {
+        return $this->hasMany(\App\Models\Peminjaman::class);
+    }
 
 
     /**
